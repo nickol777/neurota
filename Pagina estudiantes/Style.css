@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+
+header {
+    background: #2196F3;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: flex-start;
+    position: sticky;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header img {
+    width: 55px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 13px; /* el margen derecho */
+    margin-left: 100px; /* el margen izquierdo */
+    cursor: pointer;
+}
+
+/*Buscador*/ 
+
+.input {
+    width: 125rem; 
+    margin-right: 100px;
+    height: 40px;
+    padding: 10px;
+    padding-left: 50px; 
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+}
+
+/* lupa del buscador*/
+.icon {
+    position: absolute;
+    left: 20px;
+    fill: #9e9ea7;
+    width: 20px;
+    height: 20px;
+
+}.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 600px; /* Hacer el pinchi buscador mas largo*/
+    margin-left: auto; /* para empujar el buscador hacia la derecha */
+}
+
+
+/* Estilos del botón de menu desplegable */
+/* orden general y tamaño lineas*/
+.hamburger {
+    width: 25px;
+    height: 25px;
+    cursor: 15px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-around;
+}
+/* lineas */
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease; 
+}
+
+.menu-open span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Estilos del sidebar */
+.sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #1976D2;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.sidebar ul li:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Estilos del overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Efecto de empuje del contenido principal (opcional) */
+main {
+    transition: all 0.3s ease;
+}
+
+main.pushed {
+    transform: translateX(250px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main.pushed {
+        transform: translateX(0);
+    }
+}
+
+/* BODY */
+main {
+    background: #fce4ec;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1  {
+    text-align: center;
+    color:#2196F3;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2 {
+   
+    color:#2196F3;
+    margin-bottom: 2rem;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Contenedores*/
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    
+}
+
+.izquierda {
+    background-color: #fce4ec;
+    flex: 0 0 70%; /* Use flex property to adjust width */
+    padding: 20px;
+}
+
+.derecha {
+    background-color:  #fcf1f4;
+    flex: 0 0 30%; /* Use flex property to adjust width */
+    padding: 20px;
+}
+
+p  {
+    color:  #1d1c1c;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+li{
+  color: #1d1c1c;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .izquierda, .derecha {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header img {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .izquierda, .derecha {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Botón de login */
+.btn-login {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.btn-login:hover {
+    background-color: #45a049;
+}
+
+/* Sección de login */
+.login-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #488bb8;
+}
+
+
+.back-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Color azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el cursor */
+}
